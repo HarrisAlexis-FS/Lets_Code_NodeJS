@@ -22,6 +22,44 @@ router.get("/:id", (req,res, next) => {
             method: req.method,
         },
         });
-        })
+        });
+
+router.put("/example/:id", (req, res)=>{
+    const example = req.params.example
+    const id = req.params.id
+    res.status(200).json({
+        message: 'successful -PUT by ID',
+        example: example,
+        id: id,
+        metadata: {
+            hostname: req.hostname,
+            method: req.method,
+        },
+        });
+        });
+
+router.post("/icecream", (req, res)=>{
+    const icecream = req.body
+    res.status(200).json({
+        message: 'successful -POST by ID',
+        metadata: {
+            hostname: req.hostname,
+            method: req.method,
+        },
+        });
+        });
+
+router.delete("/tacos/:id", (req, res, next)=>{
+    const id = req.params.id
+    res.status(200).json({
+        message: 'successful -DELETE by ID',
+        id: id,
+        metadata: {
+            hostname: req.hostname,
+            method: req.method,
+        },
+        });
+        });
+
 
 module.exports = router;
